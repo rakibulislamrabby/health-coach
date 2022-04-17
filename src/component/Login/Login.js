@@ -3,8 +3,12 @@ import React, { useRef } from 'react';
 import { Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 import LoginGoogle from './LoginGoogle/LoginGoogle';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -21,34 +25,53 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    //Reset password hooks
-    // const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    // Reset password hooks
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-    // if (loading || sending) {
-    //     return <Loading></Loading>
-    // }
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
     // show error
     let errorElement;
     if (error) {
         errorElement = <p className='text-danger'>Error: {error?.message} {error?.message}</p>
     }
+
     const handleSubmit = event => {
         event.preventDefault();
 
         const email = emailRef.current.value;
         const password = passRef.current.value;
         signInWithEmailAndPassword(email, password);
-        navigate("/home")
+        // if (error) {
+        //     toast("please give correct information")
+        // }
+        if (!user) {
+            toast("please give correct information")
+        }
     }
     if (user) {
         navigate(from, { replace: true });
     }
+
     // else {
-    //     alert("Please correct informetion")
+    //     toast("Please correct informetion")
     // }
     const navigateRegister = event => {
         navigate("/register")
     }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast("please enter your email")
+        }
+    }
+
     return (
         <div>
             <h2 className='text-center mt-3 text-info'>Please Login</h2>
@@ -63,8 +86,9 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control ref={passRef} type="password" placeholder="Password" required />
                 </Form.Group>
-                {/* {errorElement} */}
+                {errorElement}
                 <p>New to Health-Coach? <Link to="/register" className='text-danger text-decoration-none' >Please Register</Link></p>
+                <p>Forgate PassWord? <button className='btn btn-link text-primary text-decoration-none' onClick={resetPassword}>Reset Password</button></p>
 
                 {/* <p>Forgate PassWord? <button className='btn btn-link text-primary text-decoration-none'>Reset Password</button></p> */}
 
@@ -75,7 +99,7 @@ const Login = () => {
                     Login
                 </button>
                 <LoginGoogle></LoginGoogle>
-                {/* <ToastContainer /> */}
+                <ToastContainer />
             </Form>
         </div>
     );
