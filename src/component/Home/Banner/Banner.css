@@ -1,0 +1,11 @@
+
+section{
+    position: relative;
+    background-size: cover;
+    background-position: center;
+
+}
+section img{
+    width: 100%;
+    min-height: 100vh;
+}
