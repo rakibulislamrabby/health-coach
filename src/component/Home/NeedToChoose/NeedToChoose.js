@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CustomerReview = () => {
+const NeedToChoose = () => {
     return (
-        <div className='container my-5'>
+        <div id='need' className='container my-5'>
             <div>
                 <h2 className='text-center text-info mb-3'>Why need health coach for fitness</h2>
                 <p className='text-center mb-5'>Fitness coaches can enable you to meet your wellness objectives. They can turn into your instructor, your helper, your mentor and your companion. Our fitness coaches are degreed and confirmed by a certify wellness association.</p>
@@ -39,4 +39,4 @@ const CustomerReview = () => {
     );
 };
 
-export default CustomerReview;
+export default NeedToChoose;
