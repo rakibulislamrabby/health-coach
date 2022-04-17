@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 const Service = (props) => {
     const { name, price, img, description } = props.service;
@@ -10,7 +11,7 @@ const Service = (props) => {
                     <h5 className="card-title">{name}</h5>
                     <p>Fee: ${price}</p>
                     <p className="card-text">{description}</p>
-                    <a href="#" className="btn btn-primary">Appoinment Now</a>
+                    <Button href="#" className="btn btn-primary">Appoinment Now</Button>
                 </div>
             </div>
         </div>
