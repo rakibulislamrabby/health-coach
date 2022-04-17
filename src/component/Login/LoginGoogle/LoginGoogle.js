@@ -1,10 +1,16 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import google from "../../../images/icon/google.png"
 
 const LoginGoogle = () => {
+    const navigate = useNavigate();
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+    if (user) {
+        navigate("/home");
+    }
     return (
         <div>
             <div className='d-flex align-items-center'>

@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 import LoginGoogle from '../Login/LoginGoogle/LoginGoogle';
 
 const Register = () => {
-    const [agree, setAgree] = useState(false);
+    const [permit, setPermit] = useState(false);
     const navigate = useNavigate();
     const [
         createUserWithEmailAndPassword,
@@ -49,19 +49,19 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
-                <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" />
+                <input onClick={() => setPermit(!permit)} type="checkbox" name="terms" id="terms" />
 
                 {/* terms condition color change step-1 */}
                 {/* <label className={agree ? "text-primary ps-2" : "text-danger ps-1"} htmlFor='terms'>Accept Terms and Condition</label> */}
 
                 {/* step-2 */}
-                <label className={`ps-2 ${agree ? "text-info" : "text-danger"}`} htmlFor='terms'>Accept Terms and Condition</label>
+                <label className={`ps-2 ${permit ? "text-info" : "text-danger"}`} htmlFor='terms'>Accept Terms and Condition</label>
 
                 <p className='mt-2'>Already have Account? <Link to="/login" className='text-info text-decoration-none ' >Please Login</Link></p>
                 {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group> */}
-                <Button disabled={!agree} className='w-50 d-block mx-auto rounded-pill bg-info' variant="primary" type="submit">
+                <Button disabled={!permit} className='w-50 d-block mx-auto rounded-pill bg-info' variant="primary" type="submit">
                     Register
                 </Button>
                 <LoginGoogle></LoginGoogle>
