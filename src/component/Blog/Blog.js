@@ -4,7 +4,7 @@ const Blog = () => {
     return (
         <div className='container'>
             <h2 className='text-center mt-4 text-decoration-underline text-success'> Question & Ans Section</h2>
-            {/* qus-1 */}
+            {/* qus-1*/}
             <div>
                 <h5>1. Difference between authorization and authentication</h5>
                 <p className='ps-3'>Authentication</p>

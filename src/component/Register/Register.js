@@ -54,16 +54,10 @@ const Register = () => {
                 </Form.Group>
                 <input onClick={() => setPermit(!permit)} type="checkbox" name="terms" id="terms" />
 
-                {/* terms condition color change step-1 */}
-                {/* <label className={agree ? "text-primary ps-2" : "text-danger ps-1"} htmlFor='terms'>Accept Terms and Condition</label> */}
-
-                {/* step-2 */}
                 <label className={`ps-2 ${permit ? "text-success" : "text-danger"}`} htmlFor='terms'>Accept Terms and Condition</label>
 
                 <p className='mt-2'>Already have Account? <Link to="/login" className='text-success text-decoration-none ' >Please Login</Link></p>
-                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group> */}
+
                 <Button disabled={!permit} className='w-50 d-block mx-auto rounded-pill bg-success' variant="success" type="submit">
                     Register
                 </Button>

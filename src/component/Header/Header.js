@@ -7,6 +7,7 @@ import auth from '../../firebase.init';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+
     //SignOut Option
     const handleSignout = () => {
         signOut(auth);

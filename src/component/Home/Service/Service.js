@@ -5,10 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const Service = (props) => {
     const { id, name, price, img, description } = props.service;
 
-    // const navigate = useNavigate();
-    // const navigatetoDisplayDetails = id => {
-    //     navigate(`/checkout/${id}`);
-    // }
     return (
         <div className='g-5 col-sm-12 col-md-6 col-lg-4'>
             <div className="card">

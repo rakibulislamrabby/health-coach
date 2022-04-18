@@ -44,9 +44,7 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passRef.current.value;
         signInWithEmailAndPassword(email, password);
-        // if (error) {
-        //     toast("please give correct information")
-        // }
+
         if (error) {
             toast("please give correct information")
         }
@@ -55,9 +53,6 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
-    // else {
-    //     toast("Please correct informetion")
-    // }
     const navigateRegister = event => {
         navigate("/register")
     }
@@ -91,11 +86,6 @@ const Login = () => {
                 <p>New to Health-Coach? <Link to="/register" className='text-danger text-decoration-none' >Please Register</Link></p>
                 <p>Forgate PassWord? <button className='btn btn-link text-success text-decoration-none' onClick={resetPassword}>Reset Password</button></p>
 
-                {/* <p>Forgate PassWord? <button className='btn btn-link text-primary text-decoration-none'>Reset Password</button></p> */}
-
-                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group> */}
                 <button className=' btn btn-success w-50 d-block mx-auto rounded-pill' variant="success" type="submit">
                     Login
                 </button>
