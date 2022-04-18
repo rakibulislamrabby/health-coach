@@ -37,6 +37,7 @@ const Login = () => {
         errorElement = <p className='text-danger'>Error: {error?.message} {error?.message}</p>
     }
 
+
     const handleSubmit = event => {
         event.preventDefault();
 
@@ -46,7 +47,7 @@ const Login = () => {
         // if (error) {
         //     toast("please give correct information")
         // }
-        if (!user) {
+        if (error) {
             toast("please give correct information")
         }
     }

@@ -34,6 +34,12 @@ const Blog = () => {
                     <li>Web Development Made Easy</li>
                     <li>Growth and User Engagement</li>
                 </ul>
+                <h6>The other options of implement authentication</h6>
+                <ul>
+                    <li>JWT token use: JWTs are used as a secure way to authenticate users and share information. Typically, a private key, or secret, is used by the issuer to sign the JWT. The receiver of the JWT will verify the signature to ensure that the token hasn't been altered after it was signed by the issuer</li>
+
+                    <li>oAuth: Integrating OAuth 2.0 into your app has several benefits: It allows you to read data of a user from another application. It supplies the authorization workflow for web, desktop applications, and mobile devices. Is a server side web app that uses authorization code and does not interact with user credentials.</li>
+                </ul>
             </div>
 
             {/* Qus-3 */}
